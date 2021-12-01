@@ -4,38 +4,35 @@ import kotlin.collections.ArrayList
 import kotlin.math.abs
 
 fun main(args: Array<String>) {
-    val read = Scanner(System.`in`)
-    val a = read.nextInt()
-    var result = 0
-    var minValue = 0
-    var maxValue = 0
-    if(a in 1..20){
-        for (i in 0..a-1){
-            var value = read.nextInt()
-            if (i==0){
-                minValue = value
-                maxValue = value
-            }else{
-                if(value<minValue){
-                    minValue = value
-                }
-                if(value>maxValue){
-                    maxValue = value
-                }
 
-            }
+    val t = readLine()!!.trim().toInt()
 
+    for (tItr in 1..t) {
+        var n = readLine()!!.trim().toInt()
 
-        }
-        result = maxValue - abs(minValue)
-        println("$result")
+        val result = handshake(n)
+
+        println(result)
     }
-
-
-   
 }
 
+fun handshake(n: Int): Int {
+    // Write your code here
+    var result:Int = 0
+    var n1 = n
+    if (n1<2){
+        return  0
+    }
+    for (i in 1..n1) {
 
+        result = result + (n1-1)
+        n1--
+        if(n1==1){
+            break
+        }
+    }
+    return result
+}
 
 
 
